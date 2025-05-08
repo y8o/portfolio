@@ -69,8 +69,8 @@ export default function Home() {
                 </Link>
               </Button>
               <Button asChild variant="outline" className="border-amber-600 text-amber-600 hover:bg-amber-200">
-                <Link href="/files/transcripts.pdf" target="_blank">
-                  Transcripts
+                <Link href="/transcript">
+                  Transcript
                 </Link>
               </Button>
               <Button asChild variant="outline" className="border-amber-600 text-amber-600 hover:bg-amber-200">
