@@ -10,6 +10,7 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-4">Portfolio</h3>
             <p className="text-amber-200">A showcase of my work in GIS, Machine Learning, AI, and Neural Networks.</p>
+            <p className="text-amber-200">This website was created and is maintained by me, as a project in itself, build with Next.js and deployed to GitHub Pages.</p>
           </div>
 
           <div>
@@ -32,8 +33,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/files/resume.pdf"
-                  target="_blank"
+                  href="/resume"
                   className="text-amber-200 hover:text-white transition-colors"
                 >
                   Resume
@@ -51,7 +51,7 @@ export default function Footer() {
                 size="icon"
                 className="text-amber-200 hover:text-white hover:bg-amber-700"
               >
-                <Link href="https://github.com" target="_blank">
+                <Link href="https://github.com/y8o" target="_blank">
                   <Github size={20} />
                 </Link>
               </Button>
@@ -61,7 +61,7 @@ export default function Footer() {
                 size="icon"
                 className="text-amber-200 hover:text-white hover:bg-amber-700"
               >
-                <Link href="https://linkedin.com" target="_blank">
+                <Link href="https://www.linkedin.com/in/oscar-babin-7488561b3/" target="_blank">
                   <Linkedin size={20} />
                 </Link>
               </Button>
@@ -71,17 +71,7 @@ export default function Footer() {
                 size="icon"
                 className="text-amber-200 hover:text-white hover:bg-amber-700"
               >
-                <Link href="https://twitter.com" target="_blank">
-                  <Twitter size={20} />
-                </Link>
-              </Button>
-              <Button
-                asChild
-                variant="ghost"
-                size="icon"
-                className="text-amber-200 hover:text-white hover:bg-amber-700"
-              >
-                <Link href="mailto:your.email@example.com">
+                <Link href="mailto:oscar.babin@gmail.com">
                   <Mail size={20} />
                 </Link>
               </Button>
@@ -91,7 +81,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-amber-700 mt-8 pt-8 text-center text-amber-200">
-          <p>© {new Date().getFullYear()} Your Name. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Oscar Babin. All rights reserved.</p>
         </div>
       </div>
     </footer>

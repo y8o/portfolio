@@ -64,7 +64,7 @@ export default function Home() {
             </p>
             <div className="flex gap-4 mt-6">
               <Button asChild variant="outline" className="border-amber-600 text-amber-600 hover:bg-amber-200">
-                <Link href="/files/resume.pdf" target="_blank">
+                <Link href="/resume">
                   Resume
                 </Link>
               </Button>
