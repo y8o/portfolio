@@ -12,7 +12,7 @@ export default function Home() {
       {/* Hero/Introduction Section */}
       <section className="container mx-auto px-4 py-20 flex flex-col items-center text-center">
         <h1 className="text-4xl md:text-6xl font-bold text-amber-900 mb-6">
-          Hello, I'm <span className="text-amber-600">Your Name</span>
+          Hello, I'm <span className="text-amber-600">Oscar Babin</span>
         </h1>
         <p className="text-lg md:text-xl text-gray-700 max-w-2xl mb-8">
           I'm a passionate professional specializing in GIS, Machine Learning, and AI solutions. With expertise in
