@@ -1,13 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /utput: 'export',
+  output: 'export',
   images: {
     unoptimized: true,
   },
   // GitHub Pages uses a subdirectory format, so if you're deploying to username.github.io/portfolio
   // uncomment the following line and replace 'portfolio' with your repo name
-  // basePath: '/portfolio',* config options here */
   basePath: '/portfolio', // Add your GitHub Pages repo name here
   assetPrefix: '/portfolio/',
 };
