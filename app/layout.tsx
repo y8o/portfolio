@@ -1,4 +1,4 @@
-import type React from "react"
+import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import Header from "@/components/header"
@@ -6,14 +6,15 @@ import Footer from "@/components/footer"
 
 const inter = Inter({ subsets: ["latin"] })
 
-export const metadata = {
-  title: "Portfolio | Oscar Babin",
-  description: "Professional portfolio showcasing GIS, Machine Learning, AI, and Neural Network projects",
+export const metadata: Metadata = {
+  title: "Oscar Babin - Portfolio",
+  description: "Portfolio website showcasing my projects and skills",
   icons: {
     icon: [
-      { url: '/favicon.ico' },
-      { url: '/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
-      { url: '/favicon.svg', type: 'image/svg+xml' },
+      {
+        url: "/oscar.portfolio/favicon.ico",
+        href: "/oscar.portfolio/favicon.ico",
+      },
     ],
     apple: [
       { url: '/apple-touch-icon.png' },
