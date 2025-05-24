@@ -5,7 +5,6 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X, Github, Linkedin, Mail } from "lucide-react"
 import { usePathname } from "next/navigation"
-import { ModeToggle } from "./mode-toggle"
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -20,60 +19,53 @@ export default function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-14 items-center">
-        <div className="mr-4 flex">
-          <Link href="/" className="mr-6 flex items-center space-x-2">
+    <header className="sticky top-0 z-50 w-full border-b bg-amber-50/95 backdrop-blur supports-[backdrop-filter]:bg-amber-50/60">
+      <div className="container flex h-16 items-center justify-between">
+        <div className="flex items-center gap-4">
+          <Link href="/" className="flex items-center gap-2">
             <img
               src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/profile.jpg`}
-              alt="Profile"
+              alt="Oscar Babin"
               className="h-8 w-8 rounded-full"
             />
-            <span className="hidden font-bold sm:inline-block">
-              Oscar
-            </span>
+            <span className="font-semibold text-amber-800">Oscar Babin</span>
           </Link>
         </div>
-        <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
-          <nav className="flex items-center">
-            <Link href="/about">
-              <Button variant="ghost" className="text-sm font-medium">
-                About
-              </Button>
-            </Link>
-            <Link href="/portfolio">
-              <Button variant="ghost" className="text-sm font-medium">
-                Portfolio
-              </Button>
-            </Link>
-            <Link href="/resume">
-              <Button variant="ghost" className="text-sm font-medium">
-                Resume
-              </Button>
-            </Link>
-            <Link href="/transcript">
-              <Button variant="ghost" className="text-sm font-medium">
-                Transcript
-              </Button>
-            </Link>
+
+        <nav className="flex items-center gap-4">
+          <Link href="/portfolio">
+            <Button variant="ghost" className="text-amber-800 hover:text-amber-900">
+              Portfolio
+            </Button>
+          </Link>
+          <Link href="/projects">
+            <Button variant="ghost" className="text-amber-800 hover:text-amber-900">
+              Projects
+            </Button>
+          </Link>
+          <Link href="/about">
+            <Button variant="ghost" className="text-amber-800 hover:text-amber-900">
+              About
+            </Button>
+          </Link>
+          <div className="flex items-center gap-2">
             <Link href="https://github.com/y8o" target="_blank">
-              <Button variant="ghost" size="icon">
+              <Button variant="ghost" size="icon" className="text-amber-800 hover:text-amber-900">
                 <Github className="h-5 w-5" />
               </Button>
             </Link>
-            <Link href="https://www.linkedin.com/in/oscar-zhang-1a1a1a1a1/" target="_blank">
-              <Button variant="ghost" size="icon">
+            <Link href="https://linkedin.com/in/oscar-babin" target="_blank">
+              <Button variant="ghost" size="icon" className="text-amber-800 hover:text-amber-900">
                 <Linkedin className="h-5 w-5" />
               </Button>
             </Link>
-            <Link href="mailto:oscar.zhang@example.com">
-              <Button variant="ghost" size="icon">
+            <Link href="mailto:oscar.babin@example.com">
+              <Button variant="ghost" size="icon" className="text-amber-800 hover:text-amber-900">
                 <Mail className="h-5 w-5" />
               </Button>
             </Link>
-            <ModeToggle />
-          </nav>
-        </div>
+          </div>
+        </nav>
 
         {/* Mobile Menu Button */}
         <Button variant="ghost" size="icon" className="md:hidden" onClick={toggleMenu}>

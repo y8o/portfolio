@@ -53,7 +53,7 @@ export default function Home() {
           <div className="w-full md:w-1/3 flex justify-center">
             <div className="relative w-64 h-64 rounded-full overflow-hidden border-4 border-white shadow-lg">
               <Image 
-                src="/images/profile.jpg" 
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/profile.jpg`}
                 alt="Profile Photo" 
                 fill 
                 className="object-cover"
