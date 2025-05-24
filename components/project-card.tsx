@@ -1,21 +1,10 @@
 import Image from "next/image"
 import Link from "next/link"
+import { Project } from "@/lib/data"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { ExternalLink, Github } from "lucide-react"
-
-interface Project {
-  id: string
-  title: string
-  description: string
-  category: string
-  image: string
-  tags: string[]
-  technologies: string[]
-  demoUrl?: string
-  githubUrl?: string
-}
 
 interface ProjectCardProps {
   project: Project
@@ -32,14 +21,20 @@ export default function ProjectCard({ project }: ProjectCardProps) {
   return (
     <Card className="overflow-hidden transition-all duration-300 hover:shadow-md">
       <div className="relative h-48 w-full">
-        <Image src={project.image || "/placeholder.svg"} alt={project.title} fill className="object-cover" />
-        <Link href={`/projects?type=category&value=${encodeURIComponent(project.category)}`}>
+        <Image 
+          src={project.image} 
+          alt={project.title} 
+          fill 
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        />
+        <Link href={`/portfolio?category=${encodeURIComponent(project.category)}`}>
           <Badge className={`absolute top-2 right-2 ${categoryColors[project.category]} cursor-pointer hover:opacity-80`}>
             {project.category}
           </Badge>
         </Link>
       </div>
-
+      
       <CardHeader className="pb-2">
         <CardTitle className="text-xl text-amber-800">{project.title}</CardTitle>
         <CardDescription>{project.description}</CardDescription>
@@ -49,7 +44,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         <div className="flex flex-col gap-2">
           <div className="flex flex-wrap gap-2">
             {project.technologies.map((tech) => (
-              <Link key={tech} href={`/projects?type=tech&value=${encodeURIComponent(tech)}`}>
+              <Link key={tech} href={`/portfolio?tech=${encodeURIComponent(tech)}`}>
                 <Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-200 cursor-pointer hover:opacity-80">
                   {tech}
                 </Badge>
@@ -58,7 +53,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           </div>
           <div className="flex flex-wrap gap-2">
             {project.tags.map((tag) => (
-              <Link key={tag} href={`/projects?type=tag&value=${encodeURIComponent(tag)}`}>
+              <Link key={tag} href={`/portfolio?tag=${encodeURIComponent(tag)}`}>
                 <Badge variant="outline" className="bg-amber-100 text-amber-800 border-amber-300 cursor-pointer hover:opacity-80">
                   {tag}
                 </Badge>

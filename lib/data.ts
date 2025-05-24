@@ -1,5 +1,17 @@
+export interface Project {
+  id: string
+  title: string
+  description: string
+  category: string
+  image: string
+  tags: string[]
+  technologies: string[]
+  demoUrl?: string
+  githubUrl?: string
+}
+
 // Sample project data
-export const pinnedProjects = [
+export const pinnedProjects: Project[] = [
   {
     id: "gis-1",
     title: "Urban Growth Prediction",
@@ -47,7 +59,7 @@ export const pinnedProjects = [
 ]
 
 // Extended project list for portfolio page
-export const allProjects = [
+export const allProjects: Project[] = [
   ...pinnedProjects,
   {
     id: "gis-2",
