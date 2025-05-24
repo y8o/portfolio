@@ -1,6 +1,6 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import SectionHeading from "@/components/section-heading"
-import ProjectCard from "@/components/project-card"
+import ProjectFilter from "@/components/project-filter"
 import { allProjects } from "@/lib/data"
 
 interface PortfolioPageProps {
@@ -56,43 +56,23 @@ export default function Portfolio({ searchParams }: PortfolioPageProps) {
               </TabsList>
 
               <TabsContent value="all" className="mt-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {allProjects.map((project) => (
-                    <ProjectCard key={project.id} project={project} />
-                  ))}
-                </div>
+                <ProjectFilter projects={allProjects} />
               </TabsContent>
 
               <TabsContent value="gis" className="mt-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {gisProjects.map((project) => (
-                    <ProjectCard key={project.id} project={project} />
-                  ))}
-                </div>
+                <ProjectFilter projects={gisProjects} />
               </TabsContent>
 
               <TabsContent value="ml" className="mt-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {mlProjects.map((project) => (
-                    <ProjectCard key={project.id} project={project} />
-                  ))}
-                </div>
+                <ProjectFilter projects={mlProjects} />
               </TabsContent>
 
               <TabsContent value="nn" className="mt-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {nnProjects.map((project) => (
-                    <ProjectCard key={project.id} project={project} />
-                  ))}
-                </div>
+                <ProjectFilter projects={nnProjects} />
               </TabsContent>
 
               <TabsContent value="other" className="mt-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {otherProjects.map((project) => (
-                    <ProjectCard key={project.id} project={project} />
-                  ))}
-                </div>
+                <ProjectFilter projects={otherProjects} />
               </TabsContent>
             </Tabs>
           </div>
