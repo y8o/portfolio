@@ -7,8 +7,8 @@ export default function Portfolio() {
   // Group projects by category
   const gisProjects = allProjects.filter((p) => p.category === "GIS")
   const mlProjects = allProjects.filter((p) => p.category === "Machine Learning")
+  const aiProjects = allProjects.filter((p) => p.category === "AI")
   const nnProjects = allProjects.filter((p) => p.category === "Neural Network")
-  const otherProjects = allProjects.filter((p) => p.category === "Other")
 
   return (
     <main className="min-h-screen bg-amber-50">
@@ -21,8 +21,8 @@ export default function Portfolio() {
               <TabsTrigger value="all">All Projects</TabsTrigger>
               <TabsTrigger value="gis">GIS</TabsTrigger>
               <TabsTrigger value="ml">Machine Learning</TabsTrigger>
+              <TabsTrigger value="ai">AI</TabsTrigger>
               <TabsTrigger value="nn">Neural Networks</TabsTrigger>
-              <TabsTrigger value="other">Other</TabsTrigger>
             </TabsList>
 
             <TabsContent value="all" className="mt-6">
@@ -49,17 +49,17 @@ export default function Portfolio() {
               </div>
             </TabsContent>
 
-            <TabsContent value="nn" className="mt-6">
+            <TabsContent value="ai" className="mt-6">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {nnProjects.map((project) => (
+                {aiProjects.map((project) => (
                   <ProjectCard key={project.id} project={project} />
                 ))}
               </div>
             </TabsContent>
 
-            <TabsContent value="other" className="mt-6">
+            <TabsContent value="nn" className="mt-6">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {otherProjects.map((project) => (
+                {nnProjects.map((project) => (
                   <ProjectCard key={project.id} project={project} />
                 ))}
               </div>

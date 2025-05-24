@@ -51,8 +51,15 @@ export default function Home() {
       <section className="container mx-auto px-4 py-16 bg-amber-100">
         <div className="flex flex-col md:flex-row items-center gap-8">
           <div className="w-full md:w-1/3 flex justify-center">
-            <div className="relative w-64 h-64 rounded-full overflow-hidden border-4 border-white shadow-md">
-              <Image src="/placeholder.svg?height=256&width=256" alt="Profile Photo" fill className="object-cover" />
+            <div className="relative w-64 h-64 rounded-full overflow-hidden border-4 border-white shadow-lg">
+              <Image 
+                src="/images/profile.jpg" 
+                alt="Profile Photo" 
+                fill 
+                className="object-cover"
+                priority
+                sizes="(max-width: 768px) 100vw, 256px"
+              />
             </div>
           </div>
           <div className="w-full md:w-2/3">

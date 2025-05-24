@@ -25,15 +25,19 @@ export default function ProjectCard({ project }: ProjectCardProps) {
   const categoryColors: Record<string, string> = {
     GIS: "bg-green-100 text-green-800",
     "Machine Learning": "bg-blue-100 text-blue-800",
-    AI: "bg-purple-100 text-purple-800",
     "Neural Network": "bg-pink-100 text-pink-800",
+    "Other": "bg-gray-100 text-gray-800",
   }
 
   return (
     <Card className="overflow-hidden transition-all duration-300 hover:shadow-md">
       <div className="relative h-48 w-full">
         <Image src={project.image || "/placeholder.svg"} alt={project.title} fill className="object-cover" />
-        <Badge className={`absolute top-2 right-2 ${categoryColors[project.category]}`}>{project.category}</Badge>
+        <Link href={`/projects?type=category&value=${encodeURIComponent(project.category)}`}>
+          <Badge className={`absolute top-2 right-2 ${categoryColors[project.category]} cursor-pointer hover:opacity-80`}>
+            {project.category}
+          </Badge>
+        </Link>
       </div>
 
       <CardHeader className="pb-2">
@@ -45,16 +49,20 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         <div className="flex flex-col gap-2">
           <div className="flex flex-wrap gap-2">
             {project.technologies.map((tech) => (
-              <Badge key={tech} variant="outline" className="bg-blue-50 text-blue-700 border-blue-200">
-                {tech}
-              </Badge>
+              <Link key={tech} href={`/projects?type=tech&value=${encodeURIComponent(tech)}`}>
+                <Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-200 cursor-pointer hover:opacity-80">
+                  {tech}
+                </Badge>
+              </Link>
             ))}
           </div>
           <div className="flex flex-wrap gap-2">
             {project.tags.map((tag) => (
-              <Badge key={tag} variant="outline" className="bg-amber-100 text-amber-800 border-amber-300">
-                {tag}
-              </Badge>
+              <Link key={tag} href={`/projects?type=tag&value=${encodeURIComponent(tag)}`}>
+                <Badge variant="outline" className="bg-amber-100 text-amber-800 border-amber-300 cursor-pointer hover:opacity-80">
+                  {tag}
+                </Badge>
+              </Link>
             ))}
           </div>
         </div>

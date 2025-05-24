@@ -9,12 +9,18 @@ export default function About() {
     <main className="min-h-screen bg-amber-50">
       <div className="container mx-auto px-4 py-16">
         <SectionHeading title="About Me" subtitle="Learn more about my background, skills, and interests" />
-
         <div className="bg-white rounded-xl shadow-sm p-8 mt-12">
           <div className="flex flex-col md:flex-row gap-12">
             <div className="w-full md:w-1/3 flex flex-col items-center">
-              <div className="relative w-64 h-64 rounded-full overflow-hidden border-4 border-amber-100 shadow-md mb-8">
-                <Image src="/placeholder.svg?height=256&width=256" alt="Profile Photo" fill className="object-cover" />
+              <div className="relative w-64 h-64 rounded-full overflow-hidden border-4 border-amber-100 shadow-lg mb-8">
+                <Image 
+                  src="/images/profile.jpg" 
+                  alt="Profile Photo" 
+                  fill 
+                  className="object-cover"
+                  priority
+                  sizes="(max-width: 768px) 100vw, 256px"
+                />
               </div>
 
               <div className="flex gap-4 mt-4">
