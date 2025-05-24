@@ -1,6 +1,6 @@
 import { Metadata } from "next"
 import { allProjects } from "@/lib/data"
-import ProjectFilter from "@/components/project-filter"
+import ProjectCard from "@/components/project-card"
 import SectionHeading from "@/components/section-heading"
 
 export const metadata: Metadata = {
@@ -17,8 +17,10 @@ export default function ProjectsPage() {
           subtitle="Browse through my complete collection of projects" 
         />
         
-        <div className="mt-12">
-          <ProjectFilter projects={allProjects} />
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {allProjects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
         </div>
       </div>
     </main>
