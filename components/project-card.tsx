@@ -12,6 +12,7 @@ interface Project {
   category: string
   image: string
   tags: string[]
+  technologies: string[]
   demoUrl?: string
   githubUrl?: string
 }
@@ -41,12 +42,21 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       </CardHeader>
 
       <CardContent>
-        <div className="flex flex-wrap gap-2">
-          {project.tags.map((tag) => (
-            <Badge key={tag} variant="outline" className="bg-amber-50">
-              {tag}
-            </Badge>
-          ))}
+        <div className="flex flex-col gap-2">
+          <div className="flex flex-wrap gap-2">
+            {project.technologies.map((tech) => (
+              <Badge key={tech} variant="outline" className="bg-blue-50 text-blue-700 border-blue-200">
+                {tech}
+              </Badge>
+            ))}
+          </div>
+          <div className="flex flex-wrap gap-2">
+            {project.tags.map((tag) => (
+              <Badge key={tag} variant="outline" className="bg-amber-100 text-amber-800 border-amber-300">
+                {tag}
+              </Badge>
+            ))}
+          </div>
         </div>
       </CardContent>
 

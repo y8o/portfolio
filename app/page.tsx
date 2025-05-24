@@ -30,7 +30,7 @@ export default function Home() {
 
       {/* Pinned Projects Section */}
       <section className="container mx-auto px-4 py-16 bg-white rounded-t-3xl shadow-sm">
-        <SectionHeading title="Featured Projects" subtitle="Explore some of my best work" />
+        <SectionHeading title="Featured Projects" subtitle="Explore some of my work" />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
           {pinnedProjects.map((project) => (

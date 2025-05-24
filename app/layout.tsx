@@ -13,12 +13,12 @@ export const metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode
-}>) {
+}) {
   return (
-    <html lang="en" className="light">
-      <body className={inter.className}>
+    <html lang="en" className="light" suppressHydrationWarning>
+      <body className={inter.className} suppressHydrationWarning>
         <div className="flex flex-col min-h-screen">
           <Header />
           <div className="flex-grow">{children}</div>
