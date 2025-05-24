@@ -8,7 +8,32 @@ const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
   title: "Portfolio | Oscar Babin",
-  description: "Professional portfolio showcasing GIS, Machine Learning, AI, and Neural Network projects"
+  description: "Professional portfolio showcasing GIS, Machine Learning, AI, and Neural Network projects",
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png' },
+    ],
+    other: [
+      {
+        rel: 'web-app-manifest',
+        url: '/web-app-manifest-192x192.png',
+        sizes: '192x192',
+        type: 'image/png',
+      },
+      {
+        rel: 'web-app-manifest',
+        url: '/web-app-manifest-512x512.png',
+        sizes: '512x512',
+        type: 'image/png',
+      },
+    ],
+  },
+  manifest: '/site.webmanifest',
 }
 
 export default function RootLayout({
