@@ -1,88 +1,54 @@
+import { Metadata } from "next"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import SectionHeading from "@/components/section-heading"
-import ProjectFilter from "@/components/project-filter"
 import { allProjects } from "@/lib/data"
+import ProjectFilter from "@/components/project-filter"
+import SectionHeading from "@/components/section-heading"
 
-interface PortfolioPageProps {
-  searchParams: {
-    category?: string
-    tag?: string
-    tech?: string
-  }
+export const metadata: Metadata = {
+  title: "Portfolio | Oscar Babin",
+  description: "Explore my projects in GIS, Machine Learning, and AI.",
 }
 
-export default function Portfolio({ searchParams }: PortfolioPageProps) {
-  const { category, tag, tech } = searchParams
-
-  // Group projects by category
-  const gisProjects = allProjects.filter((p) => p.category === "GIS")
-  const mlProjects = allProjects.filter((p) => p.category === "Machine Learning")
-  const nnProjects = allProjects.filter((p) => p.category === "Neural Network")
-  const otherProjects = allProjects.filter((p) => p.category === "Other")
-
-  // Filter projects based on search params
-  let filteredProjects = allProjects
-  let title = "My Portfolio"
-  let subtitle = "Explore my projects across different categories"
-
-  if (category) {
-    filteredProjects = allProjects.filter((p) => p.category === category)
-    title = `${category} Projects`
-    subtitle = `Explore my ${category.toLowerCase()} projects`
-  } else if (tag) {
-    filteredProjects = allProjects.filter((p) => p.tags.includes(tag))
-    title = `Projects tagged with "${tag}"`
-    subtitle = `Explore projects related to ${tag.toLowerCase()}`
-  } else if (tech) {
-    filteredProjects = allProjects.filter((p) => p.technologies.includes(tech))
-    title = `Projects using ${tech}`
-    subtitle = `Explore projects built with ${tech}`
-  }
-
+export default function PortfolioPage() {
   return (
     <main className="min-h-screen bg-amber-50">
       <div className="container mx-auto px-4 py-16">
-        <SectionHeading title={title} subtitle={subtitle} />
+        <SectionHeading 
+          title="My Portfolio" 
+          subtitle="Explore my projects across different categories" 
+        />
 
-        {!category && !tag && !tech ? (
-          <div className="mt-12">
-            <Tabs defaultValue="all" className="w-full">
-              <TabsList className="grid w-full grid-cols-5 bg-amber-100">
-                <TabsTrigger value="all">All Projects</TabsTrigger>
-                <TabsTrigger value="gis">GIS</TabsTrigger>
-                <TabsTrigger value="ml">Machine Learning</TabsTrigger>
-                <TabsTrigger value="nn">Neural Networks</TabsTrigger>
-                <TabsTrigger value="other">Other</TabsTrigger>
-              </TabsList>
+        <div className="mt-12">
+          <Tabs defaultValue="all" className="w-full">
+            <TabsList className="grid w-full grid-cols-5 bg-amber-100">
+              <TabsTrigger value="all">All</TabsTrigger>
+              <TabsTrigger value="gis">GIS</TabsTrigger>
+              <TabsTrigger value="ml">Machine Learning</TabsTrigger>
+              <TabsTrigger value="nn">Neural Networks</TabsTrigger>
+              <TabsTrigger value="other">Other</TabsTrigger>
+            </TabsList>
 
-              <TabsContent value="all" className="mt-6">
-                <ProjectFilter projects={allProjects} />
-              </TabsContent>
+            <TabsContent value="all" className="mt-6">
+              <ProjectFilter projects={allProjects} />
+            </TabsContent>
 
-              <TabsContent value="gis" className="mt-6">
-                <ProjectFilter projects={gisProjects} />
-              </TabsContent>
+            <TabsContent value="gis" className="mt-6">
+              <ProjectFilter projects={allProjects.filter(project => project.category === "GIS")} />
+            </TabsContent>
 
-              <TabsContent value="ml" className="mt-6">
-                <ProjectFilter projects={mlProjects} />
-              </TabsContent>
+            <TabsContent value="ml" className="mt-6">
+              <ProjectFilter projects={allProjects.filter(project => project.category === "Machine Learning")} />
+            </TabsContent>
 
-              <TabsContent value="nn" className="mt-6">
-                <ProjectFilter projects={nnProjects} />
-              </TabsContent>
+            <TabsContent value="nn" className="mt-6">
+              <ProjectFilter projects={allProjects.filter(project => project.category === "Neural Network")} />
+            </TabsContent>
 
-              <TabsContent value="other" className="mt-6">
-                <ProjectFilter projects={otherProjects} />
-              </TabsContent>
-            </Tabs>
-          </div>
-        ) : (
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredProjects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
-            ))}
-          </div>
-        )}
+            <TabsContent value="other" className="mt-6">
+              <ProjectFilter projects={allProjects.filter(project => project.category === "Other")} />
+            </TabsContent>
+          </Tabs>
+        </div>
       </div>
     </main>
   )
