@@ -44,6 +44,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="light" suppressHydrationWarning>
+      <head>
+        <link rel="icon" href="/oscar.portfolio/favicon.ico" />
+      </head>
       <body className={inter.className} suppressHydrationWarning>
         <div className="flex flex-col min-h-screen">
           <Header />

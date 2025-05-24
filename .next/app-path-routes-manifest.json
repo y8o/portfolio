@@ -5,6 +5,6 @@
   "/resume/page": "/resume",
   "/transcript/page": "/transcript",
   "/projects/page": "/projects",
-  "/portfolio/page": "/portfolio",
-  "/projects/[filter]/page": "/projects/[filter]"
+  "/projects/[filter]/page": "/projects/[filter]",
+  "/portfolio/page": "/portfolio"
 }
