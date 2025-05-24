@@ -1,6 +1,10 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
-  "/page": "app/page.js",
   "/about/page": "app/about/page.js",
+  "/page": "app/page.js",
+  "/resume/page": "app/resume/page.js",
+  "/transcript/page": "app/transcript/page.js",
+  "/projects/page": "app/projects/page.js",
+  "/projects/[filter]/page": "app/projects/[filter]/page.js",
   "/portfolio/page": "app/portfolio/page.js"
 }
